@@ -17,5 +17,13 @@
   "compilerOptions": {
     "jsx": "precompile",
     "jsxImportSource": "hono/jsx"
+  },
+  "deploy": {
+    "project": "6ec17835-911e-4850-a71d-3cc4c8445512",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }
