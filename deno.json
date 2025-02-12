@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "@neon/serverless": "jsr:@neon/serverless@^0.10.4",
+    "@neondatabase/serverless": "npm:@neondatabase/serverless@^0.10.4",
+    "dotenv": "npm:dotenv@^16.4.7",
+    "drizzle-kit": "npm:drizzle-kit@^0.30.4",
+    "drizzle-orm": "npm:drizzle-orm@^0.39.3",
+    "hono": "jsr:@hono/hono@^4.6.20"
+  },
+  "tasks": {
+    "start": "deno run --allow-net --allow-read --allow-env main.ts",
+    "watch": "deno task start --allow-net --allow-read --allow-env --watch main.ts",
+    "db:generate": "drizzle-kit generate --dialect=postgresql --schema=src/db/schema.ts --out=./drizzle",
+    "db:migrate": "deno run --allow-net --allow-env ./src/db/migrate.ts",
+    "db:seed": "deno run --allow-net --allow-env ./src/db/seed.ts"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "hono/jsx"
+  }
+}
